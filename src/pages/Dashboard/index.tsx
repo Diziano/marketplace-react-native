@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import FeatherIcon from 'react-native-vector-icons/Feather';
+import React, { useState, useEffect, useCallback } from 'react';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
+import Feather from 'react-native-vector-icons/Feather';
 
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 
 import formatValue from '../../utils/formatValue';
 import { useCart } from '../../hooks/cart';
@@ -11,6 +12,11 @@ import FloatingCart from '../../components/FloatingCart';
 
 import {
   Container,
+  CategoriesListContainer,
+  CategoriesList,
+  CategoryContainer,
+  CategoryIcon,
+  CategoryName,
   ProductContainer,
   ProductImage,
   ProductList,
@@ -20,6 +26,15 @@ import {
   ProductPrice,
   ProductButton,
 } from './styles';
+
+export interface Category {
+  id: string;
+  title: string;
+  icon: {
+    type: string;
+    name: string;
+  };
+}
 
 export interface Product {
   id: string;
@@ -32,24 +47,84 @@ export interface Product {
 const Dashboard: React.FC = () => {
   const { addToCart } = useCart();
 
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<
+    string | undefined
+  >();
+
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    async function loadProducts(): Promise<void> {
-      const productsData = await api.get('/products');
+    async function loadCategories(): Promise<void> {
+      const response = await api.get('/categories');
 
-      setProducts(productsData.data);
+      setCategories(response.data);
+    }
+
+    loadCategories();
+  }, []);
+
+  useEffect(() => {
+    async function loadProducts(): Promise<void> {
+      const response = await api.get('/products', {
+        params: {
+          category_like: selectedCategory || undefined,
+        },
+      });
+
+      setProducts(response.data);
     }
 
     loadProducts();
-  }, []);
+  }, [selectedCategory]);
 
   function handleAddToCart(item: Product): void {
     addToCart(item);
   }
 
+  const handleSelectCategory = useCallback(
+    (categoryId: string) => {
+      selectedCategory === categoryId
+        ? setSelectedCategory(undefined)
+        : setSelectedCategory(categoryId);
+    },
+    [selectedCategory],
+  );
+
   return (
     <Container>
+      <CategoriesListContainer>
+        <CategoriesList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={categories}
+          keyExtractor={category => category.id.toString()}
+          renderItem={({ item: category }) => (
+            <CategoryContainer
+              onPress={() => handleSelectCategory(category.id)}
+            >
+              <CategoryIcon selected={category.id === selectedCategory}>
+                {category.icon.type === 'feather' && (
+                  <Feather size={26} name={category.icon.name} color="#FFF" />
+                )}
+
+                {category.icon.type === 'fontawesome' && (
+                  <FontAwesome
+                    size={26}
+                    name={category.icon.name}
+                    color="#FFF"
+                  />
+                )}
+              </CategoryIcon>
+
+              <CategoryName selected={category.id === selectedCategory}>
+                {category.title}
+              </CategoryName>
+            </CategoryContainer>
+          )}
+        />
+      </CategoriesListContainer>
+
       <ProductContainer>
         <ProductList
           data={products}
@@ -68,7 +143,7 @@ const Dashboard: React.FC = () => {
                   testID={`add-to-cart-${item.id}`}
                   onPress={() => handleAddToCart(item)}
                 >
-                  <FeatherIcon size={20} name="plus" color="#C4C4C4" />
+                  <FontAwesome size={20} name="plus" color="#C4C4C4" />
                 </ProductButton>
               </PriceContainer>
             </Product>
