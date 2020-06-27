@@ -41,11 +41,11 @@
 
 
 ## :computer: Projeto
-Esta é uma aplicação conceitual de marketplace, desenvolvida com objetivos didáticos, onde é possível:
-- Explorar produtos;
-- Filtrar produtos por categoria;
-- Adicionar produtos ao carrinho;
-- Visualizar e manipular produtos no carrinho.
+Esta é uma aplicação conceitual de loja virtual, desenvolvida com objetivos didáticos, onde é possível:
+- Explorar os produtos;
+- Filtrar os produtos por categoria;
+- Adicionar os produtos ao carrinho;
+- Visualizar e manipular os produtos no carrinho.
 
 <br/>
 
