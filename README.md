@@ -33,7 +33,7 @@
 
 <br/>
 
-<h3>
+<h3 align="center">
   <img alt="marketplace-react-native" title="marketplace-react-native" src=".github/mobile.gif" />
 </h3>
 
