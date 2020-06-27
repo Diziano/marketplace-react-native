@@ -30,7 +30,7 @@
     },
     {
       "id": "5",
-      "title": "Tablet ",
+      "title": "Tablet Lorem",
       "image_url": "https://user-images.githubusercontent.com/948514/85808332-e5cabd00-b72a-11ea-92cf-d00a35899f4b.png",
       "price": 1029.00,
       "category": 2
@@ -55,6 +55,48 @@
       "image_url": "https://user-images.githubusercontent.com/948514/85808779-427aa780-b72c-11ea-99f9-90dea0e40f93.png",
       "price": 3199.99,
       "category": 1
+    },
+    {
+      "id": "9",
+      "title": "Smartphone Sit",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904373-ed4b9e00-b7de-11ea-9620-d562a7c4dacd.png",
+      "price": 1299.00,
+      "category": 3
+    },
+    {
+      "id": "10",
+      "title": "Smartphone Amet",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904375-ef156180-b7de-11ea-8461-1642af394f31.png",
+      "price": 1099.00,
+      "category": 3
+    },
+    {
+      "id": "11",
+      "title": "Tablet Ipsum",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904457-28e66800-b7df-11ea-89c9-949eee70004d.png",
+      "price": 1499.90,
+      "category": 2
+    },
+    {
+      "id": "12",
+      "title": "Cadeira Lorem",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904537-5f23e780-b7df-11ea-98a4-d9d3444787dd.png",
+      "price": 899.10,
+      "category": 5
+    },
+    {
+      "id": "13",
+      "title": "Smart TV Lorem",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904614-98f4ee00-b7df-11ea-93ea-3fac6c253a18.png",
+      "price": 1199.00,
+      "category": 4
+    },
+    {
+      "id": "14",
+      "title": "Smart TV Ipsum",
+      "image_url": "https://user-images.githubusercontent.com/948514/85904736-df4a4d00-b7df-11ea-9dc0-f6bf0353ff92.png",
+      "price": 4999.99,
+      "category": 4
     }
   ],
   "categories": [
