@@ -19,7 +19,7 @@ import {
   ProductPrice,
   ProductQuantity,
   ActionContainer,
-  ActionButton
+  ActionButton,
 } from './styles';
 
 import { useCart } from '../../hooks/cart';
@@ -110,9 +110,7 @@ const Cart: React.FC = () => {
       </ProductContainer>
 
       <FloatingCart />
-      
     </Container>
-    
   );
 };
 
