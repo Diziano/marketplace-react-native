@@ -34,7 +34,7 @@
 <br/>
 
 <h3>
-  <img alt="marketplace-react-native" title="marketplace-react-native" src=".github/mobile.gif" width="100%" />
+  <img alt="marketplace-react-native" title="marketplace-react-native" src=".github/mobile.gif" />
 </h3>
 
 <br/>
